@@ -5,18 +5,15 @@ import socket, cv2, pickle, struct
 import imutils
 import cv2
 
-
 server_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 # Get the old state of the SO_REUSEADDR option
 old_state = server_socket.getsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR) 
 
-
 # Enable the SO_REUSEADDR option
 server_socket.setsockopt( socket.SOL_SOCKET, socket.SO_REUSEADDR, 1 )
 new_state = server_socket.getsockopt( socket.SOL_SOCKET, socket.SO_REUSEADDR )
 #print ("New sock state:",new_state)
-
                                      
 host_name  = socket.gethostname()
 host_ip = '192.168.43.101' # Enter the publisher camera IP address
